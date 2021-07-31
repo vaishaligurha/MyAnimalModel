@@ -1,0 +1,303 @@
+
+interface Animal {
+ boolean walk();	
+ boolean swim();	
+}
+interface Bird extends Animal {
+	boolean fly(); 
+	boolean sing(); 
+	public void sound();
+}
+interface Fish extends Animal {
+	boolean sing();
+}
+class Duck implements Bird
+{
+	 public boolean walk() {
+		return true;
+	 }
+	 public boolean fly()
+	 {
+			return true;
+	 }
+	 public boolean sing()
+	 {
+		 return true;
+	 }
+	 public boolean swim()
+	 {
+			return true;
+	 }
+	 public void sound()
+	 {
+		 System.out.println("Quack , quack");
+	 }
+
+}
+
+class Chicken implements Bird
+{
+	 public boolean walk() {
+		 return true;
+	 }
+	 public boolean fly()
+	 {
+		 return false;
+	 }
+	 public boolean sing()
+	 {
+		 return true;
+	 }
+	 public boolean swim()
+	 {
+		 return false;
+	 }
+	 public void sound()
+	 {
+		 System.out.println(" Cluck, cluck ");
+	 }
+
+}
+
+class Rooster extends Chicken
+{
+
+	 public void sound()
+	 {
+		 System.out.println(" Cock-a-doodle-doo ");
+	 }
+
+}
+
+class Parrot implements Bird
+{
+	
+	String liveswith;
+	public Parrot()
+	{
+		
+	}
+	public Parrot(String liveswith)
+	{
+		this.liveswith=liveswith;
+	}
+	 public boolean walk() {
+		 return true;
+	 }
+	 public boolean fly()
+	 {
+		 return true;
+	 }
+	 public boolean sing()
+	 {
+		 return true;
+	 }
+	 public boolean swim()
+	 {
+		 return false;
+	 }
+	 public void sound()
+	 {
+		 
+		 switch (liveswith)
+		 {
+		 case "Dogs":
+			 System.out.println(" Woof, woof ");
+			 break;
+		 case "Cats":
+			 System.out.println(" Me ow ");
+			 break;
+		 case "Rooster":
+			 System.out.println(" Cock-a-doodle-doo ");
+			 break;
+		/* case "Duck": //more cases or default case can be added as per need for further maintainability 
+			 System.out.println(" ");
+			 break;*/
+		
+		 }
+	 }
+
+}
+
+class Shark implements Fish
+{
+	String size="Large";
+	String color="Gray";
+	boolean eatFishes = true;
+
+	 public boolean walk() {
+		 return false;
+	 }
+	 public boolean swim()
+	 {
+		 return true;
+	 }
+	 public boolean sing()
+	 {
+		 return false;
+	 }
+	 
+	 public String getColor()
+	 {
+		 return color;
+	 }
+	 
+	 public String getSize()
+	 {
+		 return size;
+	 }
+	 
+	 public boolean eatFishes()
+	 {
+		 return eatFishes;
+	 }
+
+
+}
+class Clownfish implements Fish
+{
+	String size="Small";
+	String color="Orane";
+	boolean makesjokes=true;
+	
+	
+	 public boolean walk() {
+		 return false;
+	 }
+	 public boolean swim()
+	 {
+		 return true;
+	 }
+	 public boolean sing()
+	 {
+		 return false;
+	 }
+
+	 public String getColor()
+	 {
+		 return color;
+	 }
+	 
+	 public String getSize()
+	 {
+		 return size;
+	 }
+	 
+	 public boolean makesJokes()
+	 {
+		 return makesjokes;
+	 }
+}
+
+
+class Dolphin implements Animal
+{
+
+	 public boolean walk() {
+		 return false;
+	 }
+	 public boolean swim()
+	 {
+		 return true;
+	 }
+	
+
+
+}
+
+class Butterfly implements Bird
+{
+
+	private boolean isWalk;
+	private boolean isFly;
+	public Butterfly(String type)
+	{
+		if(type.equalsIgnoreCase("Butterfly"))
+		{
+		this.isFly =true;
+		}
+		else
+		{
+		this.isWalk =true;
+		
+		}
+	}
+	 
+	 public boolean walk()
+	 {
+		 return isWalk;
+	 }
+	 public boolean swim()
+	 {
+		 return false;
+	 }
+
+	
+	public boolean fly() {
+		
+		return isFly;
+	}
+
+	
+	public boolean sing() {
+		
+		return false;
+	}
+
+	
+	public void sound() {
+		
+		
+	}
+
+
+}
+
+public class Solution {
+	int flyCount=0;
+	int walkCount=0;
+	int singCount=0;
+	int swimCount=0;
+	//unit test case
+ public static void main(String[] args) {
+	 Solution s = new Solution(); 
+		Animal[] animals = new Animal[] {new Duck(),new Chicken(),new Rooster(),new Parrot("Dogs"),
+				new Parrot("Cats"),	new Parrot("Rooster"),new Shark(),
+				new Clownfish(),new Dolphin(),new Butterfly("Butterfly"),new Butterfly("Catterpiller")};
+		for(Animal  animal: animals)
+		{
+			s.getDetails(animal);
+		}
+		System.out.println("How many of these animals can fly? :"+s.flyCount);
+		System.out.println("How many of these animals can walk?:"+s.walkCount);
+		System.out.println("How many of these animals can sing?:"+s.singCount);
+		System.out.println("How many of these animals can swim?:"+s.swimCount);
+ }	
+	 public void getDetails(Animal animal)
+	 {	 	System.out.println(animal.getClass().getName());	
+	 System.out.println("Can  walk :"+animal.walk());	
+	 walkCount =animal.walk()?walkCount+1:walkCount;
+	 System.out.println("Can  swim :"+animal.swim());
+		swimCount =animal.swim()?swimCount+1:swimCount;
+		 if (animal instanceof Bird) {
+			 Bird bird = (Bird) animal;
+			 System.out.println("Can  fly :"+ bird.fly());
+			 flyCount =bird.fly()?flyCount+1:flyCount;
+			 System.out.println("Can  sing :"+  bird.sing());
+			 singCount =bird.sing()?singCount+1:singCount;
+			 bird.sound();
+		}
+		 else if(animal instanceof Fish)
+		 {
+			 Fish fish = (Fish) animal;
+			 System.out.println("Can  sing :"+  fish.sing());
+			 singCount =fish.sing()?singCount+1:singCount;
+		 }
+		 	
+		 	
+	 }
+
+		
+ 
+
+}
