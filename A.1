@@ -1,0 +1,35 @@
+
+
+	interface Animal {
+	 boolean walk();	
+	}
+	interface Bird extends Animal {
+		boolean fly(); 
+		boolean sing(); 
+	}
+	
+
+	public class Solution {
+		//unit test case
+	 public static void main(String[] args) {
+			 Bird bird = new Bird() {
+			 public boolean walk() {
+				 return true;
+			 }
+			 public boolean fly()
+			 {
+				 return true;
+			 }
+			 public boolean sing()
+			 {
+				 return true;
+			 }
+			 };
+			 
+		System.out.println("Can bird walk :"+bird.walk());	 
+		System.out.println("Can bird fly :"+ bird.fly());
+		System.out.println("Can bird sing :"+  bird.sing());
+	 }
+	 
+	
+	}
