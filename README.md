@@ -21,3 +21,9 @@ Implemented Parrot Class.
 Parrot is a type of Bird.
 Different kind of Parrot objects can be created by passing parameter liveswith and based on liveswith properties sound of parrot is decided.
 
+B.Model fish as well as other swimming animals
+Addresses all 3 questions of Model fish
+1. Created interface fish which extends Animal.
+2. Shark and Clowfish are different kind of fish having mentioned properties.
+3. Implemented Dolphin as type of Animal that can swim.
+
