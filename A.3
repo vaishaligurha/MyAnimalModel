@@ -1,0 +1,123 @@
+
+
+
+
+	interface Animal {
+	 boolean walk();	
+	 boolean swim();	
+	}
+	interface Bird extends Animal {
+		boolean fly(); 
+		boolean sing(); 
+		public void sound();
+	}
+	
+	class Duck implements Bird
+	{
+		 public boolean walk() {
+			return true;
+		 }
+		 public boolean fly()
+		 {
+				return true;
+		 }
+		 public boolean sing()
+		 {
+			 return true;
+		 }
+		 public boolean swim()
+		 {
+				return true;
+		 }
+		 public void sound()
+		 {
+			 System.out.println("Quack , quack");
+		 }
+
+	}
+	
+	class Chicken implements Bird
+	{
+		 public boolean walk() {
+			 return true;
+		 }
+		 public boolean fly()
+		 {
+			 return false;
+		 }
+		 public boolean sing()
+		 {
+			 return true;
+		 }
+		 public boolean swim()
+		 {
+			 return false;
+		 }
+		 public void sound()
+		 {
+			 System.out.println(" Cluck, cluck ");
+		 }
+	
+	}
+
+	class Rooster extends Chicken
+	{
+	
+		 public void sound()
+		 {
+			 System.out.println(" Cock-a-doodle-doo ");
+		 }
+	
+	}
+	public class Solution {
+		//unit test case
+	 public static void main(String[] args) {
+		 Solution s = new Solution(); 
+		 	/*	 Bird rooster = new Bird() {
+			public boolean walk() {
+			 return true;
+		 }
+		 public boolean fly()
+		 {
+			 return false;
+		 }
+		 public boolean sing()
+		 {
+			 return true;
+		 }
+		 public boolean swim()
+		 {
+			 return false;
+		 }
+			 public void sound()
+			 {
+				 System.out.println(" Cock-a-doodle-doo ");
+			 }
+			 };
+			 */
+			 //Add rooster object in Animal array to get details
+			Animal[] animals = new Animal[] {new Duck(),new Chicken(),new Rooster()};
+	
+			for(Animal  animal: animals)
+			{
+				s.getDetails(animal);
+			}
+	 }	
+		 public void getDetails(Animal animal)
+		 {	 	System.out.println(animal.getClass().getName());	
+			 	System.out.println("Can  walk :"+animal.walk());
+			 	System.out.println("Can  walk :"+animal.walk());	
+			 	if (animal instanceof Bird)
+			 	{
+			 		Bird bird = (Bird) animal;
+				System.out.println("Can  fly :"+ bird.fly());
+				System.out.println("Can  sing :"+  bird.sing());
+				bird.sound();
+			 	}
+			 
+		 }
+	
+			
+	 
+	
+	}
