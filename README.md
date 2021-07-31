@@ -27,3 +27,7 @@ Addresses all 3 questions of Model fish
 2. Shark and Clowfish are different kind of fish having mentioned properties.
 3. Implemented Dolphin as type of Animal that can swim.
 
+C.Model animals that change their behaviour over time
+1.Created a class Butterfly which is of type Bird.
+2.Based on the type of butteryfly object created using  parameter, if type is butterfly then it can fly but not walk else (i.e. caterpillar ) it can walk but not fly.
+
